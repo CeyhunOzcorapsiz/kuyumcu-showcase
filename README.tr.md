@@ -5,30 +5,32 @@
 **Kuyumculuk sektörüne özel kurumsal e-ticaret platformu: canlı borsa has altın kuru entegrasyonu, dinamik işçilik marjları, özel matrah (KDV) hesaplama motoru, 15 dakikalık fiyat sabitleme kilidi ve MASAK kimlik tespiti mevzuat uyumu.**
 
 > 🔒 **Bu Vitrin Hakkında:**  
-> Bu depo teknik bir **ürün vitrini ve mimari portföyüdür**. Uygulamanın tam kaynak kodları (Next.js 16, React 19, Prisma modelleri, sanal POS, hedging motoru ve e-fatura entegrasyonları) özel bir kurumsal depoda saklanmaktadır. Bu vitrin platformun mimarisini, finansal mantığını, ekran görüntülerini ve modül tasarımlarını belgeler.
+> Bu depo teknik bir **ürün vitrini ve mimari portföyüdür**. Uygulamanın tam kaynak kodları (Next.js 16, React 19, Prisma modelleri, sanal POS, hedging motoru ve e-fatura entegrasyonları) özel bir kurumsal depoda saklanmaktadır. Aşağıdaki ekran görüntüleri **doğrudan çalışan canlı yerel uygulamadan birebir alınmış gerçek ekran görüntüleridir**.
 
 ---
 
-## 📸 Ekran Görüntüleri ve Arayüz Turu
+## 📸 Canlı Uygulamadan Alınan Gerçek Ekran Görüntüleri
 
-### 1. Müşteri Deneyimi ve Mağaza Arayüzü
+### 1. Mağaza Vitrini ve Ürün Deneyimi
 
-| Mağaza İçi Canlı Piyasa Ekranı (Digital Signage) | Ürün Detay & 15 Dakika Fiyat Sabitleme |
+| 1. Mağaza Vitrini ve Kategoriler | 2. Ürün Detay ve Canlı Fiyatlandırma |
 |:---:|:---:|
-| ![Canlı Piyasa Ekranı](docs/screenshots/01-canli-piyasa.png) | ![Ürün Detayı ve Fiyat Kilidi](docs/screenshots/02-urun-detay-fiyat-kilidi.png) |
-| *Borsa İstanbul ve serbest piyasa anlık altın alış/satış kurları* | *Canlı akan fiyat, 15 dakikalık sepet kilidi ve Özel Matrah KDV ayrımı* |
+| ![Mağaza Vitrini](docs/screenshots/01-magaza-vitrin-anasayfa.png) | ![Ürün Detayı](docs/screenshots/02-urun-detay-canli-fiyat.png) |
+| *Altın bilezik, kolye, alyans kategorileri, vitrin afişleri ve ürün listesi* | *22 Ayar Burma Bilezik detay sayfası; canlı akan borsa kuru, 15 dk fiyat kilidi ve KDV ayrımı* |
 
-| Sepet Adımı & 15 Dakikalık Fiyat Sabitleme Kilidi |
+### 2. Canlı Piyasa ve Mağaza İçi Ekranı (Digital Signage)
+
+| 3. Canlı Altın Fiyatları Tablosu (SEO & Piyasa) | 4. Mağaza İçi Canlı Piyasa Ekranı (Digital Signage) |
+|:---:|:---:|
+| ![Canlı Altın Fiyatları](docs/screenshots/03-canli-altin-fiyatlari.png) | ![Piyasa Signage](docs/screenshots/04-piyasa-ekrani-signage.png) |
+| *Has Altın, Gram, Çeyrek, Yarım, Tam altın serbest piyasa alış-satış tablosu* | *Fiziki mağazalardaki TV ekranları için canlı Borsa saati ve otomatik geri sayımlı lüks karanlık tema panosu* |
+
+### 3. Alışveriş Sepeti ve Sipariş Adımı
+
+| 5. Sepet ve 15 Dakika Sabit Kur ile Ödeme Adımı |
 |:---:|
-| ![Sepet ve Fiyat Sabitleme](docs/screenshots/03-sepet-fiyat-sabitleme.png) |
-| *Kilitli kur geri sayım sayacı, Özel Matrah KDV ayrıştırması ve 3D Secure güvenli ödeme* |
-
-### 2. Hazine, Hedging ve MASAK Mevzuat Yönetim Paneli
-
-| Gün Sonu Has Altın ve Pozisyon Raporu | MASAK Kimlik Tespiti ve Yasal Denetim Kuyruğu |
-|:---:|:---:|
-| ![Has Altın Pozisyonu](docs/screenshots/04-has-altin-pozisyonu.png) | ![MASAK KYC Denetim](docs/screenshots/05-masak-kyc-denetim.png) |
-| *TL cirosu yerine gram bazlı muhasebe, açık vs. kapatılan has borcu* | *Yasal limit üzeri işlemlerde kimlik tespiti ve 8 yıl saklama denetim izi* |
+| ![Sepet Sayfası](docs/screenshots/05-sepet-sayfasi.png) |
+| *Kilitli kur garantisi, sigortalı kargo güvencesi ve Özel Matrah e-Fatura özeti* |
 
 ---
 

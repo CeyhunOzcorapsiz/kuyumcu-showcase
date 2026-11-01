@@ -5,30 +5,32 @@
 **A specialized enterprise e-commerce platform for the jewelry industry: live spot gold rate integration, dynamic craftsmanship margins, special tax base (VAT) calculation engine, 15-minute price hold locks, and MASAK KYC regulatory compliance.**
 
 > 🔒 **About This Showcase:**  
-> This repository is a **product showcase and architecture portfolio**. The full application source code (Next.js 16, React 19, Prisma models, virtual POS, hedging calculators, and e-invoicing pipelines) is maintained in a private repository. This repository highlights the architecture, financial principles, visual screens, and module specifications.
+> This repository is a **product showcase and architecture portfolio**. The full application source code (Next.js 16, React 19, Prisma models, virtual POS, hedging calculators, and e-invoicing pipelines) is maintained in a private repository. The screenshots below are **100% genuine captures taken directly from the live running application**.
 
 ---
 
-## 📸 Visual Interface Tour
+## 📸 Genuine Interface Tour (Live Application Captures)
 
-### 1. Storefront & Customer Journey
+### 1. Storefront & Product Experience
 
-| Live Gold Market Display (In-Store Digital Signage) | Product Detail & 15-Minute Price Hold Guarantee |
+| 1. Storefront Catalog & Categories | 2. Product Detail & Dynamic Gold Price Calculation |
 |:---:|:---:|
-| ![Live Gold Market Display](docs/screenshots/01-canli-piyasa.png) | ![Product Detail & Price Hold](docs/screenshots/02-urun-detay-fiyat-kilidi.png) |
-| *Real-time spot gold prices & change % ticker board* | *Streaming live price, 15-min freeze lock & special VAT breakdown* |
+| ![Storefront Catalog](docs/screenshots/01-magaza-vitrin-anasayfa.png) | ![Product Detail](docs/screenshots/02-urun-detay-canli-fiyat.png) |
+| *Homepage with jewelry categories, banners, and curated collections* | *22K Twisted Bracelet with live streaming spot gold pricing, 15-min price freeze & tax breakdown* |
 
-| Cart & 15-Minute Price Hold Checkout |
+### 2. Live Market & Digital Signage
+
+| 3. Live Gold Prices Table (SEO & Market) | 4. In-Store Digital Signage Ticker Screen |
+|:---:|:---:|
+| ![Live Gold Prices](docs/screenshots/03-canli-altin-fiyatlari.png) | ![Signage Ticker](docs/screenshots/04-piyasa-ekrani-signage.png) |
+| *Free-market buy/sell rates for Has Gold, Gram, Quarter, Half, and Full Coins* | *Full-screen dark luxury market board for physical in-store TV displays with live clock* |
+
+### 3. Shopping Cart & Checkout
+
+| 5. Cart & 15-Minute Locked Checkout Flow |
 |:---:|
-| ![Cart & Price Hold](docs/screenshots/03-sepet-fiyat-sabitleme.png) |
-| *Locked exchange rate countdown timer, special tax base (VAT) calculation, and 3D Secure bank checkout* |
-
-### 2. Treasury, Hedging & Regulatory Admin Operations
-
-| Daily Gold Position & Hedging Exposure | MASAK KYC Regulatory Compliance Audit Queue |
-|:---:|:---:|
-| ![Daily Gold Position](docs/screenshots/04-has-altin-pozisyonu.png) | ![MASAK KYC Compliance](docs/screenshots/05-masak-kyc-denetim.png) |
-| *Turnover tracked in raw fine gold grams, open vs hedged exposure* | *Mandatory identity verification queue for transactions above threshold* |
+| ![Cart & Checkout](docs/screenshots/05-sepet-sayfasi.png) |
+| *Cart review with locked exchange rate, free insured shipping, and special VAT separation* |
 
 ---
 
