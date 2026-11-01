@@ -1,46 +1,55 @@
-# Kuyumcu E-Ticaret ve Canlı Fiyatlama Platformu — Vitrin 💍✨
+# Kuyumcu E-Ticaret ve Dinamik Altın Fiyatlama Platformu — Vitrin 💎⚡
 
 [English](README.md) | **Türkçe**
 
-**Kuyumculuk sektörü için canlı has altın kuru bağlantılı, dinamik işçilik ve özel matrah KDV hesaplama motorlu, 15 dakikalık fiyat kilitlemeli yeni nesil e-ticaret platformu.**
+**Kuyumculuk sektörüne özel e-ticaret platformu: canlı borsa has altın kuru entegrasyonu, dinamik işçilik marjları, özel matrah (KDV) hesaplama motoru ve 15 dakikalık fiyat sabitleme kilidi.**
 
-> ℹ️ **Bu Vitrin Hakkında:**  
-> Bu depo **ürün tanıtımı ve teknik portföy** içindir. Uygulama kaynak kodları (Next.js 16, React 19, Prisma şemaları, sanal POS ve e-Fatura entegrasyonları) ayrı bir **private** depoda tutulmaktadır. Bu depoda platformun mimari prensipleri, kuyumculuk finans matematiği ve modül planları yayımlanmaktadır.
-
----
-
-## 🎯 Kuyumculuk Finans Motorunun Temel İlkeleri
-
-Geleneksel e-ticaret altyapıları (Shopify, WooCommerce vb.) kuyumculuk sektörünün yasal ve finansal dinamiklerini karşılayamaz. Bu platform sıfırdan şu kurallarla inşa edilmiştir:
-
-1. **Fiyat Mantığı Tek Noktadan Yönetilir:** Vitrin, sepet, sipariş ve e-fatura aynı `pricing` motorunu kullanır. Fatura ile tahsilatın tutarsız olması engellenir.
-2. **Yanlış Fiyatla Satmaktansa Satışı Durdurma:** Anlık kur verisi şüpheli, bayat veya aşırı sapmalıysa sistem fiyat yayınını durdurur.
-3. **Kayan Nokta (Float) Hatası Yok:** Para hesaplamalarında asla `number` kullanılmaz; tüm hesaplamalar `Decimal(18,4)` hassasiyetinde tutulur.
-4. **15 Dakikalık Fiyat Kilitleme (Price Quote):** Altın fiyatları anlık değiştiği için sepet aşamasında 15 dakikalık kilit verilir; süre dolduğunda fiyatlar güncellenir.
-5. **Özel Matrah KDV Ayrımı:** Kuyumculuk mevzuatına uygun olarak; KDV yalnızca işçilik ve kâr tutarı üzerinden hesaplanır, has altın bedeli vergiden muaftır.
-6. **MASAK Uyumluluğu:** Belirli yasal limitlerin üzerindeki siparişlerde kimlik doğrulaması (`KycRecord`) zorunluluğu ve 8 yıl veri saklama altyapısı.
+> 🔒 **Bu Vitrin Hakkında:**  
+> Bu depo teknik bir **ürün vitrini ve mimari portföyüdür**. Uygulamanın tam kaynak kodları (Next.js 16, React 19, Prisma modelleri, sanal POS ve e-fatura entegrasyonları) özel bir kurumsal depoda saklanmaktadır. Bu vitrin platformun mimarisini, finansal mantığını, ekran görüntülerini ve modül tasarımlarını belgeler.
 
 ---
 
-## 🏗️ Sistem Mimarisi
+## 📸 Ekran Görüntüleri ve Arayüz Turu
+
+| Mağaza İçi Canlı Piyasa Ekranı (Digital Signage) | Ürün Detay & 15 Dakika Fiyat Sabitleme |
+|:---:|:---:|
+| ![Canlı Piyasa Ekranı](docs/screenshots/01-canli-piyasa.png) | ![Ürün Detayı ve Fiyat Kilidi](docs/screenshots/02-urun-detay-fiyat-kilidi.png) |
+| *Borsa İstanbul ve serbest piyasa anlık altın alış/satış kurları* | *Canlı akan fiyat, 15 dakikalık sepet kilidi ve Özel Matrah KDV ayrımı* |
+
+---
+
+## 🎯 Kuyumcu Finansal Motorunun Temel İlkeleri
+
+Standart e-ticaret altyapıları, altın ve mücevherat sektörünün dinamik piyasa ve yasal regülasyonlarını karşılayamaz. Platform şu temel sütunlar üzerine inşa edilmiştir:
+
+1. **Fiyatlamada Tek Doğruluk Kaynağı (Single Source of Truth):** Vitrin, sepet, ödeme adımı ve e-fatura aynı `pricing` motorunu çalıştırır; tahsilat ile muhasebe arasında kuruş farkı oluşmaz.
+2. **Korumalı Fiyat Yayını (Fail-Safe Publishing):** Canlı kur servisinde aşırı oynaklık (drift), gecikme veya anomali tespit edildiğinde, sistem maliyet altı satışı engellemek için fiyat güncellemelerini durdurur.
+3. **Kayan Nokta (Floating-Point) Hatasızlığı:** Para birimleri ve gramajlar IEEE kayan nokta (`float/double`) yerine daima `Decimal(18,4)` hassasiyetinde işlenir.
+4. **15 Dakikalık Fiyat Sabitleme Garantisi:** Borsa dalgalanmaları nedeniyle müşteri ödeme adımına geçtiğinde fiyat 15 dakika boyunca dondurulur.
+5. **Özel Matrah (KDV) Ayrımı:** KDVK Md. 17/4-g uyarınca külçe altın bedeli KDV'den istisnadır; %20 KDV yalnızca işçilik ve kâr marjı üzerinden hesaplanır.
+6. **Mevzuata Uyum (MASAK / KYC):** Belirli yasal limitleri aşan kıymetli maden alışverişlerinde kimlik doğrulama (`KycRecord`) zorunluluğu ve 8 yıl saklama süresi.
+
+---
+
+## 🏗️ Mimari Topoloji
 
 ```mermaid
 flowchart TB
-    subgraph UI[Next.js 16 + React 19 Frontend]
-        VTR[Canlı Fiyatlı Vitrin]
-        SPT[15 Dk Kilitli Sepet]
-        OD[Banka 3D Secure Ödeme]
+    subgraph UI["Next.js 16 + React 19 Mağaza"]
+        VTR["Canlı Fiyatlı Katalog"]
+        SPT["15 Dk Kilitli Sepet"]
+        OD["Banka 3D Secure Ödeme"]
     end
-    subgraph ENGINE[Kuyumcu Finans & İş Mantığı Katmanı]
-        PRC[Dinamik Fiyat Motoru<br/>Ayar, Gramaj, Has Değeri]
-        VAT[Özel Matrah KDV Hesaplayıcı]
-        LCK[15 Dk Quote Kilitleme Servisi]
-        SRC[Canlı Kur Adaptörleri & Sapma Koruması]
+    subgraph ENGINE["Finansal Mantık & Çekirdek Motor"]
+        PRC["Dinamik Fiyatlama Motoru<br/>Ayar, Gram, Has Karşılığı"]
+        VAT["Özel Matrah KDV Hesaplayıcı"]
+        LCK["15 Dk Fiyat Kilidi Servisi"]
+        SRC["Canlı Kur Beslemesi & Korumalar"]
     end
-    subgraph EXT[Dış Entegrasyonlar]
-        GOLD[Canlı Has Altın / Döviz API]
-        BANK[Banka Sanal POS]
-        INV[e-Fatura Entegratörü]
+    subgraph EXT["Harici Servisler"]
+        GOLD["Canlı Borsa / Kapalıçarşı API"]
+        BANK["Banka Sanal POS Altyapısı"]
+        INV["e-Fatura / e-Arşiv Entegrasyonu"]
     end
 
     SRC --> GOLD
@@ -55,18 +64,18 @@ flowchart TB
 
 ---
 
-## 💻 Kullanılan Teknolojiler
+## 🛠 Teknoloji Yığını
 
 | Katman | Teknoloji |
 |---|---|
-| **Web & Arayüz** | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4 |
-| **Veritabanı & ORM** | PostgreSQL, Prisma ORM, Decimal hassas para saklama |
-| **Kuyumculuk Motoru** | Özel Milyem / Ayar dönüştürücü, Özel Matrah KDV hesaplama |
-| **Güvenlik & Ödeme** | Banka Hosted 3D Secure (Kart verisi sunucuda saklanmaz), MASAK KYC kaydı |
-| **Test & Kalite** | Vitest (26+ matematiksel fiyat ve kur doğrulama testi) |
-| **Dokümantasyon** | [docs/MIMARI.md](docs/MIMARI.md) · [docs/OZELLIK-PLANI.md](docs/OZELLIK-PLANI.md) |
+| **Ön Yüz & SSR** | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4 |
+| **Veritabanı & ORM** | PostgreSQL, Prisma ORM, Decimal hassasiyetli veri depolama |
+| **Alan Mantığı** | Ayar/Milyem çevirici, Özel Matrah KDV motoru, Fiyat kilidi yöneticisi |
+| **Güvenlik & Ödeme** | Banka onaylı 3D Secure ödeme, MASAK KYC mevzuat uyumu |
+| **Test & Doğrulama** | Vitest (26+ fiyatlama ve döviz çevrim birim testi) |
+| **Detaylı Belgeler** | [docs/MIMARI.md](docs/MIMARI.md) · [docs/OZELLIK-PLANI.md](docs/OZELLIK-PLANI.md) |
 
 ---
 
-## 🔒 Güvenlik Bildirimi
-Kaynak kodlar, banka sanal POS anahtarları ve veritabanı şifreleri gizli tutulmaktadır.
+## 🔒 Gizlilik Bildirimi
+Telif hakkı içeren kaynak kodlar, banka API anahtarları ve üretim ortamı parametreleri gizli tutulmaktadır.

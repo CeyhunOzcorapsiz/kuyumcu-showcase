@@ -1,11 +1,20 @@
-# Jewelry E-Commerce & Dynamic Gold Pricing Platform — Showcase 💍✨
+# Jewelry E-Commerce & Dynamic Gold Pricing Platform — Showcase 💎⚡
 
 **English** | [Türkçe](README.tr.md)
 
 **A specialized e-commerce platform for the jewelry industry: live spot gold rate integration, dynamic craftsmanship margins, special tax base (VAT) calculation engine, and 15-minute price hold locks.**
 
-> ℹ️ **About This Showcase:**  
-> This repository is a **product showcase and architecture portfolio**. The full application source code (Next.js 16, React 19, Prisma models, virtual POS, and e-invoicing pipelines) is maintained in a private repository. This repository highlights the architecture, financial principles, and module plans.
+> 🔒 **About This Showcase:**  
+> This repository is a **product showcase and architecture portfolio**. The full application source code (Next.js 16, React 19, Prisma models, virtual POS, and e-invoicing pipelines) is maintained in a private repository. This repository highlights the architecture, financial principles, visual screens, and module plans.
+
+---
+
+## 📸 Visual Interface Tour
+
+| Live Gold Market Display (In-Store Digital Signage) | Product Detail & 15-Minute Price Hold Guarantee |
+|:---:|:---:|
+| ![Live Gold Market Display](docs/screenshots/01-canli-piyasa.png) | ![Product Detail & Price Hold](docs/screenshots/02-urun-detay-fiyat-kilidi.png) |
+| *Real-time spot gold prices & change % ticker board* | *Streaming live price, 15-min freeze lock & special VAT breakdown* |
 
 ---
 
@@ -26,21 +35,21 @@ Standard e-commerce frameworks cannot accommodate the unique regulatory and real
 
 ```mermaid
 flowchart TB
-    subgraph UI[Next.js 16 + React 19 Storefront]
-        VTR[Live Priced Catalog]
-        SPT[15-Min Locked Cart]
-        OD[Bank 3D Secure Checkout]
+    subgraph UI["Next.js 16 + React 19 Storefront"]
+        VTR["Live Priced Catalog"]
+        SPT["15-Min Locked Cart"]
+        OD["Bank 3D Secure Checkout"]
     end
-    subgraph ENGINE[Financial Domain & Business Logic]
-        PRC[Dynamic Pricing Engine<br/>Karat, Grams, Fine Gold Value]
-        VAT[Special Tax Base VAT Calculator]
-        LCK[15-Minute Price Quote Service]
-        SRC[Live Rate Feeds & Anomaly Guardrails]
+    subgraph ENGINE["Financial Domain & Business Logic"]
+        PRC["Dynamic Pricing Engine<br/>Karat, Grams, Fine Gold Value"]
+        VAT["Special Tax Base VAT Calculator"]
+        LCK["15-Minute Price Quote Service"]
+        SRC["Live Rate Feeds & Anomaly Guardrails"]
     end
-    subgraph EXT[External Services]
-        GOLD[Live Spot Gold / FX API]
-        BANK[Bank Virtual POS Gateway]
-        INV[e-Invoice Integration]
+    subgraph EXT["External Services"]
+        GOLD["Live Spot Gold / FX API"]
+        BANK["Bank Virtual POS Gateway"]
+        INV["e-Invoice Integration"]
     end
 
     SRC --> GOLD
@@ -55,7 +64,7 @@ flowchart TB
 
 ---
 
-## 💻 Tech Stack
+## 🛠 Tech Stack
 
 | Layer | Technology |
 |---|---|
