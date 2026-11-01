@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#f5f0e6"/>
+  <circle cx="300" cy="270" r="120" fill="#e3d9c6" opacity="0.35"/>
+  <ellipse cx="300" cy="270" rx="72" ry="76" fill="none" stroke="#d9ae4e" stroke-width="22"/>
+  <text x="300" y="520" text-anchor="middle" font-family="sans-serif" font-size="26" fill="#6b6259">Izinsiz ornek</text>
+</svg>
